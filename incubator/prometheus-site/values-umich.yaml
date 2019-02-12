@@ -1,0 +1,15 @@
+grafana:
+#  enabled: false
+  service:
+    type: LoadBalancer
+
+prometheus:
+  prometheusSpec:
+    externalLabels:
+      site: umich
+    thanos:
+      version: v0.2.1
+      objectStorageConfig:
+        name: slate-metrics-bucket
+        key: bucket_aws.yaml
+	
