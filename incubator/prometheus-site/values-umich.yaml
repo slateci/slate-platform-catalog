@@ -3,6 +3,12 @@ grafana:
   service:
     type: LoadBalancer
 
+prometheusOperator:
+  image:
+    tag: v0.28.0
+  prometheusConfigReloaderImage:
+    tag: v0.28.0
+
 prometheus:
   prometheusSpec:
     externalLabels:
@@ -12,4 +18,3 @@ prometheus:
       objectStorageConfig:
         name: slate-metrics-bucket
         key: bucket_aws.yaml
-	
