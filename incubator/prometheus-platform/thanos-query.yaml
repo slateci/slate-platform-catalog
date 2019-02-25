@@ -28,6 +28,7 @@ spec:
           - --http-address=$(POD_IP):9090
           - --grpc-address=$(POD_IP):10901
           - --store=store-gateway:10901
+          - --store=192.41.230.162:10901
           - --cluster.disable
         env:
         - name: POD_IP
@@ -46,7 +47,7 @@ kind: Service
 metadata:
   name: query
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: thanos
     component: query
