@@ -1,5 +1,5 @@
 grafana:
-#  enabled: false
+  enabled: false
   service:
     type: LoadBalancer
 
