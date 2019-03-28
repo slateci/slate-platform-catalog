@@ -1,3 +1,13 @@
 adminPassword: $ADMIN_PASSWORD$
 service:
   type: LoadBalancer
+ingress:
+  enabled: true
+  hosts:
+    - monitoring.uchicago-prod.slateci.net
+  annotations:
+    kubernetes.io/ingress.class: "slate"
+persistence:
+  enabled: true
+  storageClassName: nfs-provisioner
+  existingClaim: grafana-slate
