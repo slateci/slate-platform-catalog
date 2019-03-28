@@ -11,3 +11,8 @@ persistence:
   enabled: true
   storageClassName: nfs-provisioner
   existingClaim: grafana-slate
+grafana.ini:
+  auth.anonymous:
+    enabled: true
+    org_name: Main Org.
+    org_role: Viewer
