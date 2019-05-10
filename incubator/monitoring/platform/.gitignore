@@ -1,0 +1,3 @@
+values-grafana.yaml
+bucket_aws.yaml
+thanos-query.yaml

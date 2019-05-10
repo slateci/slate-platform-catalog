@@ -1,0 +1,45 @@
+adminPassword: $ADMIN_PASSWORD$
+service:
+  type: LoadBalancer
+ingress:
+  enabled: true
+  hosts:
+    - monitoring.uchicago-prod.slateci.net
+  annotations:
+    kubernetes.io/ingress.class: "slate"
+grafana.ini:
+  auth.anonymous:
+    enabled: true
+    org_name: Main Org.
+    org_role: Viewer
+datasources: 
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: SLATE
+      type: prometheus
+      url: http://query:9090
+      access: proxy
+      isDefault: true
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'default'
+      orgId: 1
+      folder: ''
+      type: file
+      disableDeletion: false
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/default
+dashboards:
+  default:
+    kubernetes-usagebynamespace:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/kubernetes-usagebynamespace.json
+    kubernetes-usagebysite:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/kubernetes-usagebysite.json
+    slate-usagebysite:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebysite.json
+    slate-usagebygroup:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebygroup.json
