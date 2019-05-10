@@ -12,7 +12,7 @@ prometheusOperator:
 prometheus:
   prometheusSpec:
     externalLabels:
-      site: uuutah-prod
+      site: uutah-prod
     thanos:
       version: v0.2.1
       objectStorageConfig:
