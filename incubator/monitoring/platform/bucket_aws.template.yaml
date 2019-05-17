@@ -1,0 +1,13 @@
+type: S3
+config:
+  bucket: "slate-metrics"
+  endpoint: "s3.amazonaws.com"
+  access_key: $ACCESS_KEY$
+  insecure: true
+  signature_version2: false
+  encrypt_sse: false
+  secret_key: $SECRET_KEY$
+  put_user_metadata: {}
+  http_config:
+    idle_conn_timeout: 0s
+    insecure_skip_verify: false
