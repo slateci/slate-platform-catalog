@@ -1,12 +1,8 @@
 #!/bin/bash
 
-CLUSTER=$1
-KUBECONFIG=~/conf/$CLUSTER.conf
-
-if [ ! -f $KUBECONFIG ]; then
-    echo "Configuration file for $CLUSTER not found"
-    exit 1
-fi
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+source common.sh
+source common-cluster.sh || exit 1
 
 echo Removing Tiller
 helm reset --force --kubeconfig $KUBECONFIG

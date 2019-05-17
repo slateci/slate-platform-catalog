@@ -1,12 +1,8 @@
 #!/bin/bash
 
-CLUSTER=$1
-KUBECONFIG=~/conf/$CLUSTER.conf
-
-if [ ! -f $KUBECONFIG ]; then
-    echo "Configuration file for $CLUSTER not found"
-    exit 1
-fi
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+source common.sh
+source common-cluster.sh || exit 1
 
 
 if helm version --kubeconfig $KUBECONFIG 2> /dev/null | grep Server > /dev/null ; then

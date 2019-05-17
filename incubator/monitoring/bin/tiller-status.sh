@@ -1,12 +1,8 @@
 #!/bin/bash
 
-CLUSTER=$1
-KUBECONFIG=~/conf/$CLUSTER.conf
-
-if [ ! -f $KUBECONFIG ]; then
-    echo "Configuration file for $CLUSTER not found"
-    exit 1
-fi
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+source common.sh
+source common-cluster.sh || exit 1
 
 helm version --kubeconfig $KUBECONFIG
 kubectl get pods --namespace kube-system --kubeconfig $KUBECONFIG | grep tiller

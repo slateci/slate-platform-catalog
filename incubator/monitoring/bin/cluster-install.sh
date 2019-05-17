@@ -1,14 +1,10 @@
 #!/bin/bash
 
-CLUSTER=$1
-KUBECONFIG=~/conf/$CLUSTER.conf
-CLUSTERVALUES=../cluster/values-$CLUSTER.yaml
-NAMESPACE=slate-monitoring
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+source common.sh
+source common-cluster.sh || exit 1
 
-if [ ! -f $KUBECONFIG ]; then
-    echo "Configuration file for $CLUSTER not found"
-    exit 1
-fi
+CLUSTERVALUES=../cluster/values-$CLUSTER.yaml
 
 if [ ! -f $CLUSTERVALUES ]; then
     echo "Prometheus values file for $CLUSTER not found"
