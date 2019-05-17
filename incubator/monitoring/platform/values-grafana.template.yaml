@@ -37,9 +37,9 @@ dashboards:
   default:
     kubernetes-usagebynamespace:
       url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/kubernetes-usagebynamespace.json
-    kubernetes-usagebysite:
-      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/kubernetes-usagebysite.json
-    slate-usagebysite:
-      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebysite.json
+    kubernetes-usagebycluster:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/kubernetes-usagebycluster.json
+    slate-usagebycluster:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebycluster.json
     slate-usagebygroup:
       url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebygroup.json
