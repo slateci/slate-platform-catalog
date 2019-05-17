@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 6,
-  "iteration": 1557497628979,
+  "iteration": 1558104257000,
   "links": [],
   "panels": [
     {
@@ -56,10 +55,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{site=~\"$site\",namespace=~\"$namespace\"}) by (site)",
+          "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -67,7 +66,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU usage by site",
+      "title": "CPU usage by cluster",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -141,10 +140,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_memory_rss{site=~\"$site\",namespace=~\"$namespace\"}) by (site)",
+          "expr": "sum(container_memory_rss{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -152,7 +151,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory usage by site",
+      "title": "Memory usage by cluster",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -226,10 +225,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_fs_reads_bytes_total{site=~\"$site\",namespace=~\"$namespace\"}) by (site)",
+          "expr": "sum(container_fs_reads_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -237,7 +236,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes read by site",
+      "title": "FS bytes read by cluster",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -311,10 +310,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_fs_writes_bytes_total{site=~\"$site\",namespace=~\"$namespace\"}) by (site)",
+          "expr": "sum(container_fs_writes_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -322,7 +321,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes write by site",
+      "title": "FS bytes write by cluster",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -383,20 +382,22 @@
         "type": "datasource"
       },
       {
-        "allValue": null,
+        "allValue": "",
         "current": {
           "text": "All",
-          "value": "$__all"
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": "$datasource",
-        "definition": "",
+        "definition": "label_values(kube_pod_info, cluster)",
         "hide": 0,
         "includeAll": true,
-        "label": "site",
+        "label": "cluster",
         "multi": true,
-        "name": "site",
+        "name": "cluster",
         "options": [],
-        "query": "label_values(kube_pod_info, site)",
+        "query": "label_values(kube_pod_info, cluster)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -427,7 +428,7 @@
         "refresh": 1,
         "regex": "slate-.*",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -466,7 +467,7 @@
     ]
   },
   "timezone": "",
-  "title": "SLATE / Usage by site",
+  "title": "SLATE / Usage by cluster",
   "uid": "behf8-mWk",
-  "version": 6
+  "version": 1
 }
