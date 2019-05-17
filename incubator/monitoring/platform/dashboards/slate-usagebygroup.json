@@ -56,7 +56,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{site=~\"$site\",namespace=~\"$namespace\"}) by (namespace)",
+          "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (namespace)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{namespace}}",
@@ -67,7 +67,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU usage by site",
+      "title": "CPU usage by group",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -141,7 +141,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_memory_rss{site=~\"$site\",namespace=~\"$namespace\"}) by (namespace)",
+          "expr": "sum(container_memory_rss{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (namespace)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{namespace}}",
@@ -152,7 +152,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory usage by site",
+      "title": "Memory usage by group",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -226,7 +226,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_fs_reads_bytes_total{site=~\"$site\",namespace=~\"$namespace\"}) by (namespace)",
+          "expr": "sum(container_fs_reads_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (namespace)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{namespace}}",
@@ -237,7 +237,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes read by site",
+      "title": "FS bytes read by group",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -311,7 +311,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_fs_writes_bytes_total{site=~\"$site\",namespace=~\"$namespace\"}) by (namespace)",
+          "expr": "sum(container_fs_writes_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (namespace)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{namespace}}",
@@ -322,7 +322,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes write by site",
+      "title": "FS bytes write by group",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -392,11 +392,11 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "label": "site",
+        "label": "cluster",
         "multi": true,
-        "name": "site",
+        "name": "cluster",
         "options": [],
-        "query": "label_values(kube_pod_info, site)",
+        "query": "label_values(kube_pod_info, cluster)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
