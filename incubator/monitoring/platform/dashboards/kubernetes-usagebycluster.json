@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1558103347558,
+  "iteration": 1558104257000,
   "links": [],
   "panels": [
     {
@@ -59,7 +58,7 @@
           "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -144,7 +143,7 @@
           "expr": "sum(container_memory_rss{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -229,7 +228,7 @@
           "expr": "sum(container_fs_reads_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -314,7 +313,7 @@
           "expr": "sum(container_fs_writes_bytes_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (cluster)",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{cluster}}",
           "refId": "A"
         }
       ],
@@ -470,5 +469,5 @@
   "timezone": "",
   "title": "Kubernetes / Usage by cluster",
   "uid": "qII8Q7ZWz",
-  "version": 4
+  "version": 1
 }
