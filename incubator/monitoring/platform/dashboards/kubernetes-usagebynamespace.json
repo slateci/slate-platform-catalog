@@ -67,7 +67,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU usage by cluster",
+      "title": "CPU usage by namespace",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -152,7 +152,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory usage by cluster",
+      "title": "Memory usage by namespace",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -237,7 +237,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes read by cluster",
+      "title": "FS bytes read by namespace",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -322,7 +322,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "FS bytes write by cluster",
+      "title": "FS bytes write by namespace",
       "tooltip": {
         "shared": true,
         "sort": 0,
