@@ -43,3 +43,5 @@ dashboards:
       url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebycluster.json
     slate-usagebygroup:
       url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-usagebygroup.json
+    slate-cluster-status:
+      url: https://raw.githubusercontent.com/slateci/slate-platform-catalog/master/incubator/monitoring/platform/dashboards/slate-cluster-status.json
