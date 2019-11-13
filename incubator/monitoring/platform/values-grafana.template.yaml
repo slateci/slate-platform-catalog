@@ -4,9 +4,14 @@ service:
 ingress:
   enabled: true
   hosts:
-    - monitoring.uchicago-prod.slateci.net
+    - monitoring.umich-prod.slateci.net
   annotations:
     kubernetes.io/ingress.class: "slate"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  tls:
+    - secretName: grafana-slate
+      hosts:
+        - monitoring.umich-prod.slateci.net
 grafana.ini:
   auth.anonymous:
     enabled: true
