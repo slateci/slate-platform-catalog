@@ -12,7 +12,7 @@ helm delete --purge prometheus-operator --kubeconfig $KUBECONFIG
 sleep 5
 
 echo Remove leftover crds
-kubectl delete crd alertmanagers.monitoring.coreos.com prometheuses.monitoring.coreos.com  servicemonitors.monitoring.coreos.com prometheusrules.monitoring.coreos.com --kubeconfig $KUBECONFIG
+kubectl delete crd alertmanagers.monitoring.coreos.com prometheuses.monitoring.coreos.com  servicemonitors.monitoring.coreos.com prometheusrules.monitoring.coreos.com podmonitors.monitoring.coreos.com --kubeconfig $KUBECONFIG
 
 echo Delete the secret with access information to the long term storage
 kubectl delete secret slate-metrics-bucket --namespace $NAMESPACE --kubeconfig $KUBECONFIG
