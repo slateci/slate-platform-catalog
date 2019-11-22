@@ -22,14 +22,13 @@ spec:
     spec:
       containers:
       - name: store-gateway
-        image: improbable/thanos:v0.2.1
+        image: thanosio/thanos:v0.8.1
         args:
           - store
           - --data-dir=/var/thanos/store
           - --objstore.config=$(OBJSTORE_CONFIG)
           - --grpc-address=$(POD_IP):10901
           - --http-address=$(POD_IP):10902
-          - --cluster.disable
         ports:
           - name: api
             containerPort: 10901

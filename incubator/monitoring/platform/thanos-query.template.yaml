@@ -22,14 +22,13 @@ spec:
     spec:
       containers:
       - name: query
-        image: improbable/thanos:v0.2.1
+        image: thanosio/thanos:v0.8.1
         args:
           - query
           - --http-address=$(POD_IP):9090
           - --grpc-address=$(POD_IP):10901
           - --store=store-gateway:10901
           - --store=$SITE_IP$:10901
-          - --cluster.disable
         env:
         - name: POD_IP
           valueFrom:
