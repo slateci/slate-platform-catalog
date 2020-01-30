@@ -245,7 +245,7 @@
           "expr": "node_load1{cluster=~\"$cluster\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{node}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -564,7 +564,7 @@
           "expr": "1 - (node_memory_MemFree_bytes{cluster=~\"$cluster\"} / node_memory_MemTotal_bytes{cluster=~\"$cluster\"})",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{node}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
