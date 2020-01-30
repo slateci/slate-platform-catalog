@@ -59,7 +59,7 @@
       "pluginVersion": "6.1.4",
       "targets": [
         {
-          "expr": "100*(1-sum(node:node_memory_bytes_available:sum{cluster=~\"$cluster\"})/sum(node:node_memory_bytes_total:sum{cluster=~\"$cluster\"}))",
+          "expr": "100*(1-sum(node_memory_MemFree_bytes{cluster=~\"$cluster\"})/sum(node_memory_MemTotal_bytes{cluster=~\"$cluster\"}))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -110,7 +110,7 @@
       "pluginVersion": "6.1.4",
       "targets": [
         {
-          "expr": "100*avg(node:node_cpu_utilisation:avg1m{cluster=~\"$cluster\"})",
+          "expr": "100*avg(node_load1{cluster=~\"$cluster\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -242,7 +242,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node:node_cpu_utilisation:avg1m{cluster=~\"$cluster\"}",
+          "expr": "node_load1{cluster=~\"$cluster\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{node}}",
@@ -561,7 +561,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node:node_memory_utilisation:ratio{cluster=~\"$cluster\"}",
+          "expr": "1 - (node_memory_MemFree_bytes{cluster=~\"$cluster\"} / node_memory_MemTotal_bytes{cluster=~\"$cluster\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{node}}",
