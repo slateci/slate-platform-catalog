@@ -56,7 +56,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_rate{cluster=~\"$cluster\",namespace=~\"$namespace\"}) by (namespace)",
+          "expr": "sum(rate(container_cpu_usage_seconds_total{cluster=~\"$cluster\",namespace=~\"$namespace\"}[1m])) by (namespace)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{namespace}}",
